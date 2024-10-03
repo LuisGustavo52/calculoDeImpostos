@@ -1,4 +1,4 @@
-package CalcularPrecos;
+package calculatePrices;
 
 public interface Source {
 	public Double getFinalPrice();

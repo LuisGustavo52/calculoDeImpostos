@@ -1,4 +1,4 @@
-package CalcularPrecos;
+package calculatePrices;
 
 public class Taxes {
 	private Double icms = 0.00;
@@ -11,27 +11,27 @@ public class Taxes {
 		switch (ufFrom) {
 		case "SP": {
 			if(ufDestiny.equals("MG"))
-				icms = source.getCostValue() + (source.getCostValue() * 0.10);
+				icms = source.getCostValue() * 0.10;
 			else if(ufDestiny.equals("RJ")) {
-				icms = source.getCostValue() + (source.getCostValue() * 0.12);
+				icms = source.getCostValue() * 0.12;
 			}else
 				throw new IllegalArgumentException("Unexpected value: " + ufFrom);
 			
 			break;
 		}case "MG": {
 			if(ufDestiny.equals("SP")){
-				icms = source.getCostValue() + (source.getCostValue() * 0.11);
+				icms = source.getCostValue() * 0.11;
 			}else if(ufDestiny.equals("RJ")) {
-				icms = source.getCostValue() + (source.getCostValue() * 0.9);
+				icms = source.getCostValue() * 0.9;
 			}else
 				throw new IllegalArgumentException("Unexpected value: " + ufFrom);
 			
 			break;
 		}case "RJ": {
 			if(ufDestiny.equals("MG")){
-				icms = source.getCostValue() + (source.getCostValue() * 0.15);
+				icms = source.getCostValue() * 0.15;
 			}else if(ufDestiny.equals("SP")) {
-				icms = source.getCostValue() + (source.getCostValue() * 0.13);
+				icms = source.getCostValue() * 0.13;
 			}
 			else
 				throw new IllegalArgumentException("Unexpected value: " + ufFrom);

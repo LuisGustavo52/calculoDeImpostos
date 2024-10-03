@@ -1,4 +1,4 @@
-package CalcularPrecos;
+package calculatePrices;
 
 public class Product implements Source{
 	private String name;

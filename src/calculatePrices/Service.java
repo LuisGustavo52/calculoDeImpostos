@@ -1,4 +1,4 @@
-package CalcularPrecos;
+package calculatePrices;
 
 public class Service implements Source{
 	private String name;

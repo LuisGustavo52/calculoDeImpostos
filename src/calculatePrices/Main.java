@@ -1,4 +1,4 @@
-package CalcularPrecos;
+package calculatePrices;
 
 public class Main {
 
