@@ -6,16 +6,19 @@ public class Product implements Source{
 	private Double freight;
 	private Double insurance;
 	private Double finalPrice;
+	private Double profitMargin;
 	
-	public Product(Taxes tax, Double insurance, Double costValue, Double freight, String from, String where) {
+	public Product(Taxes tax, Double insurance, Double costValue, Double profitMargin, Double freight, String from, String where) {
 		this.freight = freight;
 		this.insurance = insurance;
 		this.costValue = costValue;
+		this.profitMargin = profitMargin;
 		
 		tax.setIcmsValue(from, where, this);
 		tax.setIpiValue(this);
 		
 		this.finalPrice = tax.getTaxesTotalValues() + this.insurance + this.costValue +  this.freight;
+		this.finalPrice += (this.finalPrice *profitMargin);
 	}
 	
 	

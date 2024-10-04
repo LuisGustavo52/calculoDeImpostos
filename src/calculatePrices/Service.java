@@ -4,15 +4,18 @@ public class Service implements Source{
 	private String name;
 	private Double costValue;
 	private Double finalPrice;
+	private Double profitMargin;
 	
-	public Service(Taxes tax, Double costValue, String from, String where, CitiesTaxRate city) {
+	public Service(Taxes tax, Double costValue, Double profitMargin, String from, String where, CitiesTaxRate city) {
 
 		this.costValue = costValue;
+		this.profitMargin = profitMargin;
+
 		
 		tax.setIcmsValue(from, where, this);
 		tax.setIssValue(city, this);
 		
-		this.finalPrice = tax.getTaxesTotalValues() + this.costValue;
+		this.finalPrice = tax.getTaxesTotalValues() + this.costValue +((tax.getTaxesTotalValues() + this.costValue) * this.profitMargin);
 	}
 	
 	
